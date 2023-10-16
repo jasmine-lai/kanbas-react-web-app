@@ -1,0 +1,36 @@
+.kanbas-navigation {
+    background: black;
+    border-radius: 0px; /* TODO: not working */
+    border: none;
+    text-align: center;
+    align-items: center;
+}
+
+.kanbas-navigation .logo {
+    color: #e31102;
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+.kanbas-navigation .list-group-item {
+    width: 95px;
+}
+  
+.kanbas-navigation a {
+    background-color: black;
+    color: white;
+    border-radius: 0px;
+    border: none;
+    font-size: small;
+}
+
+.kanbas-navigation a .fs-1 {
+    color: #c70f02;
+    border: none;
+    font-size: small;
+}
+  
+.kanbas-navigation a.active {
+    background-color: white;
+    color: #c70f02;
+}
