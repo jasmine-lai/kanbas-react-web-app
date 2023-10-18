@@ -1,0 +1,39 @@
+.courses {
+    width: 90vw;
+}
+
+.col-1 {
+    width: 20px;
+}
+
+.icon {
+    color: #e31102;
+}
+
+.breadcrumb {
+    align-items: center;
+    margin-top: 3px;
+}
+
+.breadcrumb-link {
+    color: #e31102;
+    text-decoration: none;
+    font-size: large;
+}
+
+.breadcrumb-link:hover {
+    color: #e31102;
+    text-decoration: underline;
+}
+
+.breadcrumb .active {
+    color: #7d7d7d;
+    font-size: large;
+}
+
+.breadcrumb .active::before {
+    color: #7d7d7d;
+    font-size: small;
+    content: ">"; /* TODO: not working */
+    margin-top: 2px;
+}

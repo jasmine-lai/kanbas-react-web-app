@@ -1,0 +1,48 @@
+[
+    {
+        "_id": "M0",
+        "name": "Week 0 - INTRO",
+        "description": "Introduction to the course",
+        "course": "19753",
+        "lessons": [
+        {
+            "_id": "L01",
+            "name": "LEARNING OBJECTIVES",
+            "description": "",
+            "module": "M0"
+        },
+        {
+            "_id": "L02",
+            "name": "READING",
+            "description": "",
+            "module": "M0"
+        },
+        {
+            "_id": "L03",
+            "name": "SLIDES",
+            "description": "",
+            "module": "M0"
+        }
+      ]
+    },
+    {
+        "_id": "M1",
+        "name": "Week 1 - HTML",
+        "description": "Learn how to create user interfaces with HTML",
+        "course": "19753",
+        "lessons": [
+            {
+                "_id": "L11",
+                "name": "LEARNING OBJECTIVES",
+                "description": "",
+                "module": "M1"
+            },
+            {
+                "_id": "L12",
+                "name": "READING",
+                "description": "",
+                "module": "M1"
+            }
+        ]
+      }
+  ]
