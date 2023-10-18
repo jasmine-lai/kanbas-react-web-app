@@ -19,19 +19,21 @@ function Dashboard() {
       <h2 className="ms-5 font-slim">Published Courses (3)</h2>
       <hr className="ms-5"/>
       {/* TODO: fix card alignment */}
-      <div className="list-group courses">
+      <div className="list-group ms-5">
         {courses.map((course) => (
-          <Link key={course._id} to={`/Kanbas/Courses/${course._id}`} className="list-group-item p-0">
-            <div className="card">
-              <div className={`card-top bg-${colorMap[`${course._id}`]}`}>
-                <HiOutlineEllipsisVertical className="fs-1 text mt-3 me-2 color-white float-right"/>
-              </div>
-              <div className="card-body">
-                  <p className={`primary-text mb-1 ${colorMap[`${course._id}`]}`}>{course.name}</p>
-                  <p class="secondary-text mt-0">
-                    {course.number}.{course._id}
-                  </p>
-                  <TfiWrite className="text" size="20"/>
+          <Link key={course._id} to={`/Kanbas/Courses/${course._id}`} className="list-group-item p-0 mt-3 me-4">
+            <div className="card-group">
+              <div className="card">
+                <div className={`card-top bg-${colorMap[`${course._id}`]}`}>
+                  <HiOutlineEllipsisVertical className="text mt-3 me-2 color-white float-right" size="35"/>
+                </div>
+                <div className="card-body">
+                    <p className={`primary-text mb-1 ${colorMap[`${course._id}`]}`}>{course.name}</p>
+                    <p class="secondary-text mt-0">
+                      {course.number}.{course._id}
+                    </p>
+                    <TfiWrite className="text" size="20"/>
+                </div>
               </div>
             </div>
           </Link>

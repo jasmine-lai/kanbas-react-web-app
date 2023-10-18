@@ -9,8 +9,13 @@
     width: 90vw;
 }
 
+.dashboard .list-group {
+    flex-direction: row;
+}
+
 .dashboard .list-group-item {
     width: 270px;
+    border: none;
 }
 
 .card-top {
