@@ -27,6 +27,10 @@
     height: 130px;
 }
 
+p:hover {
+    text-decoration: underline;
+}
+
 .primary-text {
     font-size: medium;
     font-weight: 600;
