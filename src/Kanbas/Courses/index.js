@@ -4,34 +4,16 @@ import { HiOutlineBars3 } from "react-icons/hi2";
 import CourseNavigation from "./CourseNavigation";
 import Modules from "./Modules";
 import "./index.css"
+import Home from "./Home";
 
 function Courses() {
   const { courseId } = useParams();
   const course = db.courses.find((course) => course._id === courseId);
   return (
-    <div className="courses">
-      <div className="row mt-3 ms-0">
-        <HiOutlineBars3 className="text icon ps-0 col-1" size="35"/>
-        <nav aria-label="breadcrumb" className="mb-0 col-9">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item">
-              <Link key={course._id} to={`/Kanbas/Courses/${course._id}`} className="breadcrumb-link">
-                {course.number}.{course._id}
-              </Link>
-            </li>
-            <li class="breadcrumb-item active" aria-current="page">Home</li> {/* TODO: update active using js */}
-          </ol>
-        </nav>
-      </div>
-      <hr className="mt-2 ms-4"/>
-      <div className="row mt-4 ms-1">
-      <CourseNavigation className="col-3"/>
-      <div
-          className="col-9"
-        >
+    <div>
           <Routes>
             <Route path="/" element={<Navigate to="Home" />}/>
-            <Route path="Home" element={<Modules/>}/>
+            <Route path="Home" element={<Home/>}/>
             <Route path="Modules" element={<Modules/>}/>
             <Route path="Assignments" element={<h1>Assignments</h1>}/>
             <Route
@@ -40,8 +22,6 @@ function Courses() {
             />
             <Route path="Grades" element={<h1>Grades</h1>}/>
           </Routes>
-      </div>
-      </div>
     </div>
   );
 }

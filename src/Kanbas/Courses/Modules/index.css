@@ -1,3 +1,11 @@
+.col-1 {
+    width: 4vw;
+}
+
+.col-9 {
+    width: 78vw;
+}
+
 .modules {
     width: 60vw;
 }
@@ -56,4 +64,8 @@
     border-left-style: solid;
     border-left-width: 4px;
     border-left-color: green;
+}
+
+.published {
+    color: green;
 }
