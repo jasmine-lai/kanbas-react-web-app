@@ -1,4 +1,5 @@
 .kanbas-navigation {
+    height: 100vh;
     background: black;
     border-radius: 0px; /* TODO: not working */
     border: none;

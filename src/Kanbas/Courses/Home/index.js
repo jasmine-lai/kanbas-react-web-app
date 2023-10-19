@@ -19,6 +19,7 @@ import "./index.css";
 function Home() {
     const { courseId } = useParams();
     const course = db.courses.find((course) => course._id === courseId);
+    const assignments = db.assignments;
     return (
       <div className="courses">
         <div className="row mt-3 ms-0">
@@ -75,7 +76,7 @@ function Home() {
                 View Course Stream</a>
             <a class="btn side-button mb-1">
               <RiMegaphoneLine className="text me-1"/>
-                New Annpuncement</a>
+                New Announcement</a>
             <a class="btn side-button mb-1">
               <RiBarChart2Fill className="text me-1"/>
                 New Analytics</a>
@@ -84,16 +85,15 @@ function Home() {
                 View Course Notifications</a>
             <h5 className="mt-3">To Do</h5>
             <hr className="mt-0 mb-1"/>
-            <span>
-              <AiFillExclamationCircle className="text ms-4 todo"/>
-              <a className="ms-2 primary-todo">Grade A1 - ENV + HTML</a>
-              <p className="ms-5 secondary-todo">100 points</p>
-            </span>
-            <span>
-              <AiFillExclamationCircle className="text ms-4 todo"/>
-              <a className="ms-2 primary-todo">Grade A2 - CSS + BOOTSTRAP</a>
-              <p className="ms-5 secondary-todo">100 points</p>
-            </span>
+            {assignments
+              .filter((assignment) => assignment.course === courseId)
+              .map((assignment, index) => (
+                <span key={index}>
+                  <AiFillExclamationCircle className="text ms-4 todo"/>
+                  <a className="ms-2 primary-todo">Grade {assignment.title}</a>
+                  <p className="ms-5 secondary-todo">100 points</p>
+                </span>
+             ))}
           </div>
         </div>
       </div>
