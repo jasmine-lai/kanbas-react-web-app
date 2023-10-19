@@ -1,6 +1,6 @@
 import db from "../../Kanbas/Database";
 import { Link, Navigate, Route, Routes, useParams } from "react-router-dom";
-import { HiBars3 } from "react-icons/hi2";
+import { HiOutlineBars3 } from "react-icons/hi2";
 import CourseNavigation from "./CourseNavigation";
 import Modules from "./Modules";
 import "./index.css"
@@ -11,7 +11,7 @@ function Courses() {
   return (
     <div className="courses">
       <div className="row mt-3 ms-0">
-        <HiBars3 className="text icon col-1 ps-0" size="35"/>
+        <HiOutlineBars3 className="text icon ps-0 col-1" size="35"/>
         <nav aria-label="breadcrumb" className="mb-0 col-9">
           <ol class="breadcrumb">
             <li class="breadcrumb-item">
@@ -19,7 +19,7 @@ function Courses() {
                 {course.number}.{course._id}
               </Link>
             </li>
-            <li class="breadcrumb-item active" aria-current="page">Home</li>
+            <li class="breadcrumb-item active" aria-current="page">Home</li> {/* TODO: update active using js */}
           </ol>
         </nav>
       </div>
@@ -27,7 +27,7 @@ function Courses() {
       <div className="row mt-4 ms-1">
       <CourseNavigation className="col-3"/>
       <div
-          className="overflow-y-scroll col-9"
+          className="col-9"
         >
           <Routes>
             <Route path="/" element={<Navigate to="Home" />}/>
