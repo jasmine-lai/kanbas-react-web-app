@@ -6,12 +6,8 @@
     width: 78vw;
 }
 
-.modules {
-    width: 60vw;
-}
-
-.modules .row {
-    width: 60vw;
+.main-content .row {
+    width: 80vw;
     justify-content: right;
 }
 
@@ -52,20 +48,4 @@
 .modules .list-group-item {
     border-radius: 0px;
     height: 45px;
-}
-
-.module-title {
-    background-color: #f5f5f5;
-    font-weight: 500;
-    height: 65px;
-}
-
-.border-left-active {
-    border-left-style: solid;
-    border-left-width: 4px;
-    border-left-color: green;
-}
-
-.published {
-    color: green;
 }

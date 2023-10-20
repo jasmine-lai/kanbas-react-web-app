@@ -16,8 +16,8 @@ function ModuleList() {
       {modules
         .filter((module) => module.course === courseId)
         .map((module, index) => (
-          <div key={index} className="list-group modules mt-4">
-            <li className="list-group-item module-title">
+          <div key={index} className="list-group main-content mt-4">
+            <li className="list-group-item list-group-item-header">
               <VscGripper className="text me-1" size="20"/>
               <BiCaretDown className="text me-2" size="10"/>
               {module.name} {module.description}

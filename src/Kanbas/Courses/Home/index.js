@@ -13,8 +13,8 @@ import { BsBell } from "react-icons/bs";
 import { AiFillExclamationCircle } from "react-icons/ai";
 import CourseNavigation from "../CourseNavigation";
 import ModuleList from "../Modules/ModuleList";
-import "../Modules/index.css";
 import "./index.css";
+import "../Modules/index.css";
 
 function Home() {
     const { courseId } = useParams();

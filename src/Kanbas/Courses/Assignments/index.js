@@ -5,10 +5,11 @@ import { BiGlassesAlt } from "react-icons/bi";
 import { AiOutlinePlus } from "react-icons/ai";
 import { HiOutlineEllipsisVertical } from "react-icons/hi2";
 import CourseNavigation from "../CourseNavigation";
-import ModuleList from "./ModuleList";
+import AssignmentList from "./AssignmentList";
+import "../index.css";
 import "./index.css";
 
-function Modules() {
+function Assignments() {
   const { courseId } = useParams();
   const course = db.courses.find((course) => course._id === courseId);
   return (
@@ -22,7 +23,7 @@ function Modules() {
                 {course.number}.{course._id}
               </Link>
             </li>
-            <li class="breadcrumb-item active" aria-current="page">Modules</li> 
+            <li class="breadcrumb-item active" aria-current="page">Assignments</li> 
           </ol>
         </nav>
         <a class="btn mb-1 student-view">
@@ -33,27 +34,28 @@ function Modules() {
       <div className="row mt-4 ms-1">
         <CourseNavigation className="col-3"/>
         <div className="col">
-          <div className="main-content">
-            <div className="row ms-1">
-              <a className="btn ms-1 collapse-all">
-                Collapse All</a>
-              <a className="btn ms-1 view-progress">
-                View Progress</a>
-              <select className="form-select ms-1 dropdown-option">
-                <option selected value="PUBLISH-ALL">
-                  Publish All</option></select>
-              <a className="btn btn-danger ms-1 add-module">
-                <AiOutlinePlus className="text mt-0 me-2"/>
-                  Module</a>
-              <a className="btn ms-1 vertical-ellipsis ps-1">
-                <HiOutlineEllipsisVertical className="text" size="20"/></a>
+          <div className="main-content ms-2">
+            <div className="row ms-0">
+              <div className="col-2 ps-0">
+                <input type="text" class="form-control search" placeholder="Search for Assignment"/>
+              </div>
+              <div className="col-10 pe-0">
+                <a className="btn ms-1 vertical-ellipsis ps-1 float-end">
+                  <HiOutlineEllipsisVertical className="text" size="20"/></a>
+                <a className="btn btn-danger ms-1 add-assignment float-end">
+                  <AiOutlinePlus className="text mt-0 me-2"/>
+                  Assignment</a>
+                <a className="btn ms-1 add-group float-end">
+                  <AiOutlinePlus className="text mt-0 me-2"/>
+                  Group</a>
+              </div>
             </div>
             <hr/>
-            <ModuleList/>
+            <AssignmentList/>
           </div>
         </div>
       </div>
     </div>
   );
 }
-export default Modules;
+export default Assignments;

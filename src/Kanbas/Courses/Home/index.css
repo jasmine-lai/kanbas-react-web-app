@@ -1,3 +1,7 @@
+.modules {
+    width: 60vw;
+}
+
 .side-button, .side-button:hover {
     width: 240px;
     padding: none;
