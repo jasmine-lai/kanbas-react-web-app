@@ -17,7 +17,6 @@ function Courses() {
             <Route path="Modules" element={<Modules/>}/>
             <Route path="Assignments" element={<Assignments/>}/>
             <Route path="Assignments/:assignmentId" element={<AssignmentEditor/>}/>
-            <Route path="Grades" element={<h1>Grades</h1>}/>
           </Routes>
     </div>
   );
