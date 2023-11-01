@@ -8,12 +8,12 @@ function ClickEvent() {
     return (
       <div>
         <h2>Click Event</h2>
-        <button onClick={hello}> {/* configure function call */}
+        <button onClick={hello}> 
           Click Hello 1 </button>
-        <button onClick={() => hello()}> {/* wrap in function if parameters necessary */}
+        <button onClick={() => hello()}> 
           Click Hello 2 </button>
         <button
-          onClick={() => { {/* wrap in {} if more than 1 line of code necessary */}
+          onClick={() => {
             hello();
             good();
           }}

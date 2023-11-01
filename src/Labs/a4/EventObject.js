@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 
 function EventObject() {
-  const [event, setEvent] = useState(null); {/* initialize event */}
+  const [event, setEvent] = useState(null);
   const handleClick = (e) => { 
-    e.target = e.target.outerHTML; {/* replace target with HTML */}
-    delete e.view; {/* to avoid circular reference */}
-    setEvent(e); {/* set event object so it can be displayed */}
+    e.target = e.target.outerHTML;
+    delete e.view;
+    setEvent(e);
   };
   return (
     <div>
@@ -15,7 +15,7 @@ function EventObject() {
         className="btn btn-primary">
         Display Event Object
       </button>
-      <pre>{JSON.stringify(event, null, 2)}</pre> {/* convert event to string to be displayed */}
+      <pre>{JSON.stringify(event, null, 2)}</pre>
     </div>
   );
 }
