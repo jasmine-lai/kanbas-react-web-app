@@ -4,6 +4,8 @@ import KanbasNavigation from "./KanbasNavigation";
 import Dashboard from "./Dashboard";
 import Courses from "./Courses";
 import db from "./Database";
+import store from "./store";
+import { Provider } from "react-redux";
 
 function Kanbas() {
   const [courses, setCourses] = useState(db.courses);
@@ -29,8 +31,9 @@ function Kanbas() {
     );
   };
   return (
-    <div className="d-flex">
-      <KanbasNavigation/>
+    <Provider store={store}>
+      <div className="d-flex">
+        <KanbasNavigation/>
         <div>
           <Routes>
             <Route path="/"                       element={<Navigate to="Dashboard"/>}/>
@@ -45,7 +48,8 @@ function Kanbas() {
             <Route path="Courses/:courseId/*"     element={<Courses courses={courses}/>}/>
           </Routes>
         </div>
-    </div>
+      </div>
+    </Provider>
   );
 }
 export default Kanbas;

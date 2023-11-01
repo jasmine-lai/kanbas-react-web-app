@@ -6,11 +6,6 @@
     width: 78vw;
 }
 
-.main-content .row {
-    width: 80vw;
-    justify-content: right;
-}
-
 .collapse-all, .collapse-all:hover {
     width: 120px;
     background-color: #f5f5f5;
@@ -45,7 +40,11 @@
     color: black;
 }
 
-.modules .list-group-item {
+.modules .module {
     border-radius: 0px;
     height: 45px;
+}
+
+.edit-module-list {
+    width: 250px;
 }
