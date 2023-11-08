@@ -9,7 +9,6 @@ function WorkingWithObjects() {
     completed: false,
     score: 0,
   });
-  const [completed, setCompleted] = useState(false);
   const URL = "http://localhost:4000/a5/assignment";
   return (
     <div>
@@ -57,7 +56,7 @@ function WorkingWithObjects() {
       </a>
       <input
         onChange={() => setAssignment({ ...assignment,
-            completed: !completed })}
+            completed: !assignment.completed })}
         value={assignment.completed}
         className="mb-2"
         type="checkbox" />
