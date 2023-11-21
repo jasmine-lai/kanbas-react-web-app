@@ -1,4 +1,3 @@
-import db from "../../Kanbas/Database";
 import { Link, Navigate, Route, Routes, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
@@ -8,8 +7,9 @@ import Home from "./Home";
 import Assignments from "./Assignments";
 import AssignmentEditor from "./Assignments/AssignmentEditor";
 
-function Courses({ courses }) {
+function Courses() {
   const { courseId } = useParams();
+  const URL = "http://localhost:4000/api/courses";
   const [course, setCourse] = useState({});
   const findCourseById = async (courseId) => {
     const response = await axios.get(
