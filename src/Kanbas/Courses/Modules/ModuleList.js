@@ -6,7 +6,6 @@ import { BiCaretDown } from "react-icons/bi";
 import { AiFillCheckCircle } from "react-icons/ai";
 import { HiOutlineEllipsisVertical } from "react-icons/hi2";
 import { AiOutlinePlus } from "react-icons/ai";
-import db from "../../Database";
 import { addModule, setModule, setModules } from "./modulesReducer";
 import { updateModule, deleteModule, createModule, findModulesForCourse } from "./client.js";
 import "./index.css";
