@@ -9,7 +9,8 @@ import AssignmentEditor from "./Assignments/AssignmentEditor";
 
 function Courses() {
   const { courseId } = useParams();
-  const URL = "https://kanbas-node-server-app-h46z.onrender.com/api/courses";
+  const BASE_API = process.env.REACT_APP_BASE;
+  const URL = `${BASE_API}/api/courses`;
   const [course, setCourse] = useState({});
   const findCourseById = async (courseId) => {
     const response = await axios.get(

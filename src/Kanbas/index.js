@@ -6,10 +6,14 @@ import Courses from "./Courses";
 import store from "./store";
 import { Provider } from "react-redux";
 import axios from "axios";
+import Signin from "../Users/signin";
+import Account from "../Users/account";
+import UserTable from "../Users/table";
 
 function Kanbas() {
   const [courses, setCourses] = useState([]);
-  const URL = "https://kanbas-node-server-app-h46z.onrender.com/api/courses";
+  const BASE_API = process.env.REACT_APP_BASE;
+  const URL = `${BASE_API}/api/courses`;
   const findAllCourses = async () => {
     const response = await axios.get(URL);
     setCourses(response.data);
@@ -29,12 +33,13 @@ function Kanbas() {
     ]);
     setCourse({ name: "" });
   };
-  const deleteCourse = async (course) => {
+  const deleteCourse = async () => {
     const response = await axios.delete(
       `${URL}/${course._id}`
     );
     setCourses(courses.filter(
       (c) => c._id !== course._id));
+    setCourse({ name: "" });
   };
   const updateCourse = async () => {
     const response = await axios.put(
@@ -57,7 +62,10 @@ function Kanbas() {
         <KanbasNavigation/>
         <div>
           <Routes>
+            <Route path="/admin/users" element={<UserTable />} />
             <Route path="/"                       element={<Navigate to="Dashboard"/>}/>
+            <Route path="/signin" element={<Signin />} />
+            <Route path="/account" element={<Account />} />
             <Route path="Dashboard"               element={<Dashboard 
                                                               courses={courses}
                                                               course={course}

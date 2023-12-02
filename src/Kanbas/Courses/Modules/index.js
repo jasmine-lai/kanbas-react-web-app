@@ -12,7 +12,8 @@ import "./index.css";
 
 function Modules({ courses }) {
   const { courseId } = useParams();
-  const URL = "https://kanbas-node-server-app-h46z.onrender.com/courses";
+  const BASE_API = process.env.REACT_APP_BASE;
+  const URL = `${BASE_API}/api/courses`;
   const [course, setCourse] = useState({
     name: "Name",            number: "Number",
     startDate: "2023-09-10", endDate: "2023-12-15",
