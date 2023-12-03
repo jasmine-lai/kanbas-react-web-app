@@ -40,7 +40,7 @@ export const signup = async (credentials) => {
   return response.data;
 };
 export const signout = async () => {
-  const response = await requestre.post(`${USERS_API}/signout`);
+  const response = await request.post(`${USERS_API}/signout`);
   return response.data;
 };
 
