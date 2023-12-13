@@ -1,12 +1,11 @@
-import { React, useState } from "react";
+import { React } from "react";
 import { Link } from "react-router-dom";
 import { HiOutlineEllipsisVertical } from "react-icons/hi2";
 import { TfiWrite } from "react-icons/tfi";
-import db from "../Database";
 import "./index.css"
 import "../index.css"
 
-function Dashboard({ courses, course, setCourse, addNewCourse, deleteCourse, updateCourse }) {
+function Dashboard({ courses, course, setCourse, addCourse, deleteCourse, updateCourse }) {
   const colorMap = {
     19753: "color-turquoise", 
     16840: "color-indigo", 
@@ -28,10 +27,9 @@ function Dashboard({ courses, course, setCourse, addNewCourse, deleteCourse, upd
               onChange={(e) => setCourse({ ...course, startDate: e.target.value }) }/>
         <input value={course.endDate} className="form-control" type="date"
               onChange={(e) => setCourse({ ...course, endDate: e.target.value }) } />
-        <button onClick={addNewCourse} className="btn btn-success mt-2">Add</button>
+        <button onClick={addCourse} className="btn btn-success mt-2">Add</button>
         <button onClick={updateCourse} className="btn btn-primary mt-2 ms-2">Update</button>
       </div>
-      {/* TODO: fix card alignment */}
       <div className="list-group ms-5">
         {courses.map((course) => (
           <Link key={course._id} to={`/Kanbas/Courses/${course._id}`} className="list-group-item p-0 mt-3 me-4">

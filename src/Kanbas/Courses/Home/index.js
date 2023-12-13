@@ -1,4 +1,5 @@
-import db from "../../../Kanbas/Database";
+import axios from "axios";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { HiOutlineBars3 } from "react-icons/hi2";
 import { BiGlassesAlt } from "react-icons/bi";
@@ -18,8 +19,21 @@ import "../Modules/index.css";
 
 function Home() {
     const { courseId } = useParams();
-    const course = db.courses.find((course) => course._id === courseId);
-    const assignments = db.assignments;
+    const URL = "https://kanbas-node-server-app-h46z.onrender.com/api/courses";
+    const [course, setCourse] = useState({
+      name: "Name",            number: "Number",
+      startDate: "2023-09-10", endDate: "2023-12-15",
+    });
+    const findCourseById = async (courseId) => {
+      const response = await axios.get(
+        `${URL}/${courseId}`
+      );
+      setCourse(response.data);
+    };
+    useEffect(() => {
+      findCourseById(courseId);
+    }, [courseId]);
+    // const assignments = db.assignments;
     return (
       <div className="courses">
         <div className="row mt-3 ms-0">
@@ -85,7 +99,7 @@ function Home() {
                 View Course Notifications</a>
             <h5 className="mt-3">To Do</h5>
             <hr className="mt-0 mb-1"/>
-            {assignments
+            {/* {assignments
               .filter((assignment) => assignment.course === courseId)
               .map((assignment, index) => (
                 <span key={index}>
@@ -93,7 +107,7 @@ function Home() {
                   <a className="ms-2 primary-todo">Grade {assignment.title}</a>
                   <p className="ms-5 secondary-todo">100 points</p>
                 </span>
-             ))}
+             ))} */}
           </div>
         </div>
       </div>

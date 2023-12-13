@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { VscGripper } from "react-icons/vsc";
@@ -6,13 +6,32 @@ import { BiCaretDown } from "react-icons/bi";
 import { AiFillCheckCircle } from "react-icons/ai";
 import { HiOutlineEllipsisVertical } from "react-icons/hi2";
 import { AiOutlinePlus } from "react-icons/ai";
-import db from "../../Database";
-import { addModule, deleteModule, updateModule, setModule } from "./modulesReducer";
+import { addModule, setModule, setModules } from "./modulesReducer";
+import { updateModule, deleteModule, createModule, findModulesForCourse } from "./client.js";
 import "./index.css";
-
 
 function ModuleList() {
   const { courseId } = useParams();
+  useEffect(() => {
+    findModulesForCourse(courseId)
+      .then((modules) =>
+        dispatch(setModules(modules))
+    );
+  }, [courseId]);
+  const handleAddModule = () => {
+    createModule(courseId, module).then((module) => {
+      dispatch(addModule(module));
+    });
+  };
+  const handleDeleteModule = (moduleId) => {
+    deleteModule(moduleId).then((status) => {
+      dispatch(deleteModule(moduleId));
+    });
+  };
+  const handleUpdateModule = async () => {
+    const status = await updateModule(module);
+    dispatch(updateModule(module));
+  };
   const modules = useSelector((state) => state.modulesReducer.modules);
   const module = useSelector((state) => state.modulesReducer.module);
   const dispatch = useDispatch();
@@ -26,8 +45,8 @@ function ModuleList() {
               placeholder="Module Name"
               className="me-2 col edit-module-list"
           />
-          <button onClick={() => dispatch(addModule({ ...module, course: courseId }))} className="btn btn-success ms-1">Add</button>
-          <button onClick={() => dispatch(updateModule(module))} className="btn btn-primary ms-1">Update</button>
+          <button onClick={handleAddModule} className="btn btn-success ms-1">Add</button>
+          <button onClick={handleUpdateModule} className="btn btn-primary ms-1">Update</button>
           <div className="col mt-2">
             <textarea value={module.description}
                 onChange={(e) => dispatch(setModule({ ...module, description: e.target.value }))}
@@ -49,7 +68,7 @@ function ModuleList() {
               <AiOutlinePlus className="text mt-1 ms-2 float-right" size="15"/>
               <BiCaretDown className="text mt-1 float-right" size="15"/>
               <AiFillCheckCircle className="text published mt-1 float-right" size="20"/>
-              <button onClick={() => dispatch(deleteModule(module._id))} className="btn btn-danger mb-2 me-2 p-1 font-small float-right">
+              <button onClick={handleDeleteModule(module._id)} className="btn btn-danger mb-2 me-2 p-1 font-small float-right">
                 Delete
               </button>
               <button onClick={() => dispatch(setModule(module))} className="btn btn-light mb-2 me-2 p-1 font-small float-right">
