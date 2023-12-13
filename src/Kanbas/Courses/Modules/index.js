@@ -8,7 +8,7 @@ import CourseNavigation from "../CourseNavigation";
 import ModuleList from "./ModuleList";
 import "./index.css";
 
-function Modules() {
+function Modules({ courses }) {
   const { courseId } = useParams();
   const course = db.courses.find((course) => course._id === courseId);
   return (
